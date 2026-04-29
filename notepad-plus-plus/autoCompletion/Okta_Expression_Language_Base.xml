@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+OKTA EXPRESSION LANGUAGE AUTOCOMPLETE FILE FOR NOTEPAD++
+Base Version - Contains only standard attributes and functions
+
+INSTALLATION:
+1. Save this file as "Okta_Expression_Language_Base.xml" in the "autoCompletion" folder of your Notepad++ installation
+   (Usually C:\Program Files\Notepad++\autoCompletion\ or C:\Program Files (x86)\Notepad++\autoCompletion\)
+2. Restart Notepad++
+3. In a file with Okta Expression Language syntax highlighting, autocomplete will be available
+
+CUSTOMIZATION:
+To add your organization's custom attributes, add new KeyWord entries at the end of this file
+before the closing </AutoComplete> tag. Format example:
+
+<KeyWord name="employeeType"/>
+<KeyWord name="userPrincipalName"/>
+<KeyWord name="customAttribute1"/>
+
+Remember to maintain alphabetical sorting for proper autocomplete functionality.
+-->
+<NotepadPlus>
+   <AutoComplete language="Okta_Expression_Language_Base">
+       <Environment ignoreCase="no" startFunc="(" stopFunc=")" paramSeparator="," terminal=";" additionalWordChar="."/>
+       <!-- Attribute Reference Functions -->
+       <KeyWord name="user.getLinkedObject" func="yes">
+           <Overload retVal="User" descr="Retrieves the user identified with the specified primary relationship">
+               <Param name="String primaryName" />
+           </Overload>
+       </KeyWord>
+       
+       <!-- Array Functions -->
+       <KeyWord name="Arrays.add" func="yes">
+           <Overload retVal="Array" descr="Adds a value to the array">
+               <Param name="Array array" />
+               <Param name="Object value" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="Arrays.clear" func="yes">
+           <Overload retVal="Array" descr="Clears all elements from the array">
+               <Param name="Array array" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="Arrays.contains" func="yes">
+           <Overload retVal="Boolean" descr="Checks if the array contains the specified value">
+               <Param name="Array array" />
+               <Param name="Object value" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="Arrays.flatten" func="yes">
+           <Overload retVal="Array" descr="Flattens multiple values into a single array">
+               <Param name="Object... values" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="Arrays.get" func="yes">
+           <Overload retVal="Object" descr="Gets the value at the specified position in the array">
+               <Param name="Array array" />
+               <Param name="Integer position" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="Arrays.isEmpty" func="yes">
+           <Overload retVal="Boolean" descr="Checks if the array is empty or null">
+               <Param name="Array array" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="Arrays.remove" func="yes">
+           <Overload retVal="Array" descr="Removes the specified value from the array">
+               <Param name="Array array" />
+               <Param name="Object value" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="Arrays.size" func="yes">
+           <Overload retVal="Integer" descr="Returns the size of the array">
+               <Param name="Array array" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="Arrays.toCsvString" func="yes">
+           <Overload retVal="String" descr="Converts the array to a comma-separated string">
+               <Param name="Array array" />
+           </Overload>
+       </KeyWord>
+       
+       <!-- Conversion Functions -->
+       <KeyWord name="Convert.toInt" func="yes">
+           <Overload retVal="Integer" descr="Converts a string to an integer">
+               <Param name="String val" />
+           </Overload>
+           <Overload retVal="Integer" descr="Converts a double to an integer (rounds to nearest integer)">
+               <Param name="Double val" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="Convert.toNum" func="yes">
+           <Overload retVal="Double" descr="Converts a string to a number">
+               <Param name="String val" />
+           </Overload>
+       </KeyWord>
+       
+       <!-- Country Code Conversion Functions -->
+       <KeyWord name="Iso3166Convert.toAlpha2" func="yes">
+           <Overload retVal="String" descr="Converts to 2-character country code">
+               <Param name="String countryCode" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="Iso3166Convert.toAlpha3" func="yes">
+           <Overload retVal="String" descr="Converts to 3-character country code">
+               <Param name="String countryCode" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="Iso3166Convert.toName" func="yes">
+           <Overload retVal="String" descr="Converts to full country name">
+               <Param name="String countryCode" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="Iso3166Convert.toNumeric" func="yes">
+           <Overload retVal="String" descr="Converts to numeric country code">
+               <Param name="String countryCode" />
+           </Overload>
+       </KeyWord>
+       
+       <!-- Group Functions -->
+       <KeyWord name="getFilteredGroups" func="yes">
+           <Overload retVal="Array" descr="Gets filtered groups based on properties">
+               <Param name="Array groupIds" />
+               <Param name="String filterAttribute" />
+               <Param name="Integer limit" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="Groups.contains" func="yes">
+           <Overload retVal="Array" descr="Gets groups that contain the specified pattern">
+               <Param name="String appTypeOrId" />
+               <Param name="String pattern" />
+               <Param name="Integer limit" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="Groups.endsWith" func="yes">
+           <Overload retVal="Array" descr="Gets groups that end with the specified pattern">
+               <Param name="String appTypeOrId" />
+               <Param name="String pattern" />
+               <Param name="Integer limit" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="Groups.startsWith" func="yes">
+           <Overload retVal="Array" descr="Gets groups that start with the specified pattern">
+               <Param name="String appTypeOrId" />
+               <Param name="String pattern" />
+               <Param name="Integer limit" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="isMemberOfAnyGroup" func="yes">
+           <Overload retVal="Boolean" descr="Checks if the user is a member of any of the specified groups">
+               <Param name="String... groupIds" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="isMemberOfGroup" func="yes">
+           <Overload retVal="Boolean" descr="Checks if the user is a member of the specified group by ID">
+               <Param name="String groupId" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="isMemberOfGroupName" func="yes">
+           <Overload retVal="Boolean" descr="Checks if the user is a member of the specified group by name">
+               <Param name="String groupName" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="isMemberOfGroupNameContains" func="yes">
+           <Overload retVal="Boolean" descr="Checks if the user is a member of any group containing the string">
+               <Param name="String nameSubstring" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="isMemberOfGroupNameRegex" func="yes">
+           <Overload retVal="Boolean" descr="Checks if the user is a member of any group matching the regex">
+               <Param name="String regex" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="isMemberOfGroupNameStartsWith" func="yes">
+           <Overload retVal="Boolean" descr="Checks if the user is a member of any group starting with the string">
+               <Param name="String namePrefix" />
+           </Overload>
+       </KeyWord>
+       
+       <!-- Manager/Assistant Functions -->
+       <KeyWord name="getAssistantAppUser" func="yes">
+           <Overload retVal="User" descr="Gets the assistant's app user attribute values for the app user of any app instance">
+               <Param name="String assistantSource" />
+               <Param name="String attributeSource" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="getAssistantUser" func="yes">
+           <Overload retVal="User" descr="Gets the assistant's Okta user attribute values">
+               <Param name="String assistantSource" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="getManagerAppUser" func="yes">
+           <Overload retVal="User" descr="Gets the manager's app user attribute values for the app user of any app instance">
+               <Param name="String managerSource" />
+               <Param name="String attributeSource" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="getManagerUser" func="yes">
+           <Overload retVal="User" descr="Gets the manager's Okta user attribute values">
+               <Param name="String managerSource" />
+           </Overload>
+       </KeyWord>
+       
+       <!-- String Functions -->
+       <KeyWord name="String.append" func="yes">
+           <Overload retVal="String" descr="Appends a suffix to the given string">
+               <Param name="String str" />
+               <Param name="String suffix" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="String.join" func="yes">
+           <Overload retVal="String" descr="Joins multiple strings with a separator">
+               <Param name="String separator" />
+               <Param name="String... strings" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="String.len" func="yes">
+           <Overload retVal="Integer" descr="Returns the length of the string">
+               <Param name="String input" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="String.removeSpaces" func="yes">
+           <Overload retVal="String" descr="Removes all spaces from the string">
+               <Param name="String input" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="String.replace" func="yes">
+           <Overload retVal="String" descr="Replaces all occurrences of a match with a replacement">
+               <Param name="String input" />
+               <Param name="String match" />
+               <Param name="String replacement" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="String.replaceFirst" func="yes">
+           <Overload retVal="String" descr="Replaces the first occurrence of a match with a replacement">
+               <Param name="String input" />
+               <Param name="String match" />
+               <Param name="String replacement" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="String.startsWith" func="yes">
+           <Overload retVal="Boolean" descr="Checks if the string starts with the specified prefix">
+               <Param name="String input" />
+               <Param name="String prefix" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="String.stringContains" func="yes">
+           <Overload retVal="Boolean" descr="Checks if the string contains the specified substring">
+               <Param name="String input" />
+               <Param name="String searchString" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="String.stringSwitch" func="yes">
+           <Overload retVal="String" descr="Returns a value based on a key in the input string">
+               <Param name="String input" />
+               <Param name="String defaultString" />
+               <Param name="String... keyValuePairs" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="String.substring" func="yes">
+           <Overload retVal="String" descr="Returns a substring from the input">
+               <Param name="String input" />
+               <Param name="Integer startIndex" />
+               <Param name="Integer endIndex" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="String.substringAfter" func="yes">
+           <Overload retVal="String" descr="Returns the substring after the first occurrence of the search string">
+               <Param name="String input" />
+               <Param name="String searchString" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="String.substringBefore" func="yes">
+           <Overload retVal="String" descr="Returns the substring before the first occurrence of the search string">
+               <Param name="String input" />
+               <Param name="String searchString" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="String.toLowerCase" func="yes">
+           <Overload retVal="String" descr="Converts the string to lowercase">
+               <Param name="String input" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="String.toUpperCase" func="yes">
+           <Overload retVal="String" descr="Converts the string to uppercase">
+               <Param name="String input" />
+           </Overload>
+       </KeyWord>
+       
+       <!-- Legacy String Functions -->
+       <KeyWord name="toLowerCase" func="yes">
+           <Overload retVal="String" descr="Converts the string to lowercase (deprecated)">
+               <Param name="String string" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="toUpperCase" func="yes">
+           <Overload retVal="String" descr="Converts the string to uppercase (deprecated)">
+               <Param name="String string" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="substring" func="yes">
+           <Overload retVal="String" descr="Returns a substring from the input (deprecated)">
+               <Param name="String string" />
+               <Param name="Integer start" />
+               <Param name="Integer end" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="substringAfter" func="yes">
+           <Overload retVal="String" descr="Returns the substring after the first occurrence (deprecated)">
+               <Param name="String string" />
+               <Param name="String searchString" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="substringBefore" func="yes">
+           <Overload retVal="String" descr="Returns the substring before the first occurrence (deprecated)">
+               <Param name="String string" />
+               <Param name="String searchString" />
+           </Overload>
+       </KeyWord>
+       
+       <!-- Time Functions -->
+       <KeyWord name="Time.fromIso8601ToString" func="yes">
+           <Overload retVal="String" descr="Converts ISO 8601 time to formatted string">
+               <Param name="String time" />
+               <Param name="String format" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="Time.fromIso8601ToUnix" func="yes">
+           <Overload retVal="String" descr="Converts ISO 8601 time to Unix timestamp">
+               <Param name="String time" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="Time.fromIso8601ToWindows" func="yes">
+           <Overload retVal="String" descr="Converts ISO 8601 time to Windows timestamp">
+               <Param name="String time" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="Time.fromStringToIso8601" func="yes">
+           <Overload retVal="String" descr="Converts formatted string to ISO 8601 time">
+               <Param name="String time" />
+               <Param name="String format" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="Time.fromUnixToIso8601" func="yes">
+           <Overload retVal="String" descr="Converts Unix timestamp to ISO 8601 time">
+               <Param name="String time" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="Time.fromWindowsToIso8601" func="yes">
+           <Overload retVal="String" descr="Converts Windows timestamp to ISO 8601 time">
+               <Param name="String time" />
+           </Overload>
+       </KeyWord>
+       <KeyWord name="Time.now" func="yes">
+           <Overload retVal="String" descr="Returns the current time in ISO 8601 format">
+           </Overload>
+           <Overload retVal="String" descr="Returns the current time in ISO 8601 format with the specified timezone">
+               <Param name="String timeZoneId" />
+           </Overload>
+           <Overload retVal="String" descr="Returns the current time with the specified timezone and format">
+               <Param name="String timeZoneId" />
+               <Param name="String format" />
+           </Overload>
+       </KeyWord>
+       
+       <!-- Directory and Workday Functions -->
+       <KeyWord name="findDirectoryUser" func="yes">
+           <Overload retVal="User" descr="Finds the Active Directory App user object">
+           </Overload>
+       </KeyWord>
+       <KeyWord name="findWorkdayUser" func="yes">
+           <Overload retVal="User" descr="Finds the Workday App user object">
+           </Overload>
+       </KeyWord>
+       <KeyWord name="hasDirectoryUser" func="yes">
+           <Overload retVal="Boolean" descr="Checks if the user has an Active Directory assignment">
+           </Overload>
+       </KeyWord>
+       <KeyWord name="hasWorkdayUser" func="yes">
+           <Overload retVal="Boolean" descr="Checks if the user has a Workday assignment">
+           </Overload>
+       </KeyWord>
+       
+       <!-- Base Okta Attributes -->
+       <KeyWord name="city"/>
+       <KeyWord name="costCenter"/>
+       <KeyWord name="countryCode"/>
+       <KeyWord name="department"/>
+       <KeyWord name="displayName"/>
+       <KeyWord name="division"/>
+       <KeyWord name="email"/>
+       <KeyWord name="employeeNumber"/>
+       <KeyWord name="firstName"/>
+       <KeyWord name="honorificPrefix"/>
+       <KeyWord name="honorificSuffix"/>
+       <KeyWord name="isActive"/>
+       <KeyWord name="lastName"/>
+       <KeyWord name="locale"/>
+       <KeyWord name="login"/>
+       <KeyWord name="manager"/>
+       <KeyWord name="managerId"/>
+       <KeyWord name="middleName"/>
+       <KeyWord name="mobilePhone"/>
+       <KeyWord name="nickName"/>
+       <KeyWord name="organization"/>
+       <KeyWord name="postalAddress"/>
+       <KeyWord name="preferredLanguage"/>
+       <KeyWord name="primaryPhone"/>
+       <KeyWord name="profileUrl"/>
+       <KeyWord name="secondEmail"/>
+       <KeyWord name="state"/>
+       <KeyWord name="streetAddress"/>
+       <KeyWord name="timezone"/>
+       <KeyWord name="title"/>
+       <KeyWord name="userType"/>
+       <KeyWord name="zipCode"/>
+       
+       <!-- Constants -->
+       <KeyWord name="true"/>
+       <KeyWord name="false"/>
+       <KeyWord name="null"/>
+       
+       <!-- Control Flow Keywords -->
+       <KeyWord name="if"/>
+       <KeyWord name="else"/>
+       <KeyWord name="endfor"/>
+       <KeyWord name="endif"/>
+       <KeyWord name="in"/>
+       <KeyWord name="matches"/>
+       
+       <!-- 
+       CUSTOM ATTRIBUTES SECTION
+       
+       To add your Okta custom attributes, place them below this comment in alphabetical order.
+       Use the format: <KeyWord name="attributeName"/>
+       
+       Example:
+       <KeyWord name="customField1"/>
+       <KeyWord name="employeeType"/>
+       <KeyWord name="userPrincipalName"/>
+       -->
+       
+   </AutoComplete>
+</NotepadPlus>
