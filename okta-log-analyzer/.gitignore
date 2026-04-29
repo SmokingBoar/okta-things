@@ -1,0 +1,13 @@
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vscode/
+.idea/
+__pycache__/
+*.pyc
+.env
+.env.local
+venv/
+*.api_token
+*.secret
