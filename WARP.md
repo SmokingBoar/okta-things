@@ -2,7 +2,7 @@
 This repository (`okta things`) is the public mirror. It must stay in sync with the parent source repository while enforcing privacy and security checks before any push.
 
 ## Source of truth
-- Source repository root: `../` (the parent folder containing `okta-expression-language/`, `okta-log-analyzer/`, and `README.md`)
+- Source repository root: `../` (the parent folder containing `okta-expression-language/`, `okta-log-analyzer/`, `reusable-scripts/`, and `README.md`)
 - Public mirror root: `./` (`okta things`)
 
 ## Required process for every update
@@ -24,6 +24,7 @@ Get-ChildItem -Force $dst | Where-Object { $_.Name -ne ".git" } | Remove-Item -R
 # copy source projects (exclude nested git metadata)
 robocopy (Join-Path $root "okta-expression-language") (Join-Path $dst "okta-expression-language") /E /XD .git
 robocopy (Join-Path $root "okta-log-analyzer")      (Join-Path $dst "okta-log-analyzer")      /E /XD .git
+robocopy (Join-Path $root "reusable-scripts")       (Join-Path $dst "reusable-scripts")       /E /XD .git
 Copy-Item (Join-Path $root "README.md") (Join-Path $dst "README.md") -Force
 ```
 
