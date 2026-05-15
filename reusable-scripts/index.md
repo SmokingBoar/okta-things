@@ -26,6 +26,19 @@ Exports all Okta profile mappings (including property-level expressions and map 
 2. Run the script.
 3. Use **Copy to Clipboard** or **Download CSV**.
 
+### `bulk-reset-passwords-from-csv.js`
+Bulk-resets Okta user passwords using `oktaId,password` rows from a selected CSV file.
+
+### Usage
+1. Open [Gabriel Sroka Console](https://gabrielsroka.github.io/console/).
+2. Prepare your CSV using [`bulk-password-reset-template.csv`](bulk-password-reset-template.csv).
+3. Run the script and select your CSV file when prompted.
+
+### Warning
+- CSV parsing is simple (`split(',')`), so quoted commas/newlines in values can break parsing.
+- Passwords are handled as <span style="font-size: 1.2em;"><strong><u>plaintext in the CSV</u></strong></span>.
+- The script does not validate missing `oktaId` or `password` values before API calls.
+
 ## Source: `okta-log-analyzer/scripts/`
 
 ### [`rockstar-export-policies.js`](../okta-log-analyzer/scripts/rockstar-export-policies.js)
