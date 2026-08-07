@@ -34,6 +34,20 @@ Bulk-resets Okta user passwords using `oktaId,password` rows from a selected CSV
 2. Prepare your CSV using [`bulk-password-reset-template.csv`](bulk-password-reset-template.csv).
 3. Run the script and select your CSV file when prompted.
 
+### `change-app-scope-and-remove-users.js`
+Changes selected app assignments from group scope to user scope, unassigns the selected users from those apps, and removes them from selected groups.
+
+### Usage
+1. Open [Gabriel Sroka Console](https://gabrielsroka.github.io/console/).
+2. Set `userIds`, `appIds`, and `groupIds` in the script.
+3. Run the script.
+4. Review the results table or download the CSV summary.
+
+### Warning
+- The script changes each app assignment to `USER` scope before attempting the unassignment.
+- If the scope change fails for an app, that app unassignment is skipped and recorded as an error.
+- This performs destructive Okta changes; verify all IDs before running.
+
 ### Warning
 - CSV parsing is simple (`split(',')`), so quoted commas/newlines in values can break parsing.
 - Passwords are handled as <span style="font-size: 1.2em;"><strong><u>plaintext in the CSV</u></strong></span>.
