@@ -52,7 +52,5 @@ If any sensitive content is found, do not commit or push until remediated.
 
 ## Commit and push rules
 - Use the privacy-safe Git identity for commits.
-- Include attribution footer on commit messages:
-  - `Co-Authored-By: Oz <oz-agent@warp.dev>`
 - Keep changes reviewable; use feature branches and PRs for merges to `main`.
 
